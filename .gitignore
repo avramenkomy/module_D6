@@ -1,0 +1,14 @@
+/__pycache__/
+__pycache__
+venv
+env
+/venv/
+/env/
+.idea
+.pyc
+*.pyc
+app.log
+static
+photo
+staticfiles
+img
