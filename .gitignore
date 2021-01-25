@@ -8,7 +8,6 @@ env
 .pyc
 *.pyc
 app.log
-static
 photo
 staticfiles
 img
