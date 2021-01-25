@@ -10,8 +10,8 @@ class BookForm(forms.ModelForm):
     author = forms.ChoiceField
     copy_count = forms.IntegerField(label='Кол-во копий')
     price = forms.DecimalField(label="Цена", decimal_places=2, max_digits=8)
-    photo = forms.ImageField(label="Фото")
-    small_photo = forms.ImageField(label="Маленькое фото")
+    photo = forms.ImageField(label="Фото", required=False)
+    small_photo = forms.ImageField(label="Маленькое фото", required=False)
 
     def __init__(self, *args, **kwargs):
         super(BookForm, self).__init__(*args, **kwargs)
@@ -20,7 +20,6 @@ class BookForm(forms.ModelForm):
                 visible.field.widget.attrs['class'] = 'form-control-file'
             else:
                 visible.field.widget.attrs['class'] = 'form-control'
-            # print("visible: ", visible.field.__class__.__name__)
 
     class Meta:
         model = Book

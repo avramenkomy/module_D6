@@ -1,6 +1,11 @@
 from django.db import models
+import os
+from module_D6 import settings
 
 # Create your models here.
+
+
+
 class Author(models.Model):
     last_name = models.CharField("Фамилия", max_length=255)
     first_name = models.CharField("Имя", max_length=255)
@@ -50,8 +55,8 @@ class Book(models.Model):
         verbose_name= ("Автор"))
     copy_count = models.PositiveSmallIntegerField("Кол-во копий", default=1)
     price = models.DecimalField("Цена", decimal_places=2, max_digits=8, default=0)
-    photo = models.ImageField(upload_to='books_photo', blank=True)
-    small_photo = models.ImageField(upload_to='books_photo/small', blank=True)
+    photo = models.ImageField(upload_to='books_photo', blank=True, default = os.path.join('books_photo','no_photo.jpg'))
+    small_photo = models.ImageField(upload_to='books_photo/small', blank=True, default = os.path.join('books_photo','small', 'no_photo_small.jpg'))
 
     class Meta:
         verbose_name = "Книга"
